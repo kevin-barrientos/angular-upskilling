@@ -1,0 +1,6 @@
+<mat-action-list>
+  <ng-container *ngFor="let note of notes$ | async">
+    <tpg-notes-list-item [note]="note" (click)="selected.next(note)"></tpg-notes-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-action-list>

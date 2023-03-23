@@ -1,0 +1,11 @@
+<div class="px-4 pt-4">
+  <h2>{{ note.title }}</h2>
+</div>
+<div class="px-4 pt-4 grow">
+  <p>
+    {{ note.content }}
+  </p>
+</div>
+<div class="p-4 flex justify-end">
+  <span>Last updated: {{ note.updatedOn | date : 'short' }}</span>
+</div>

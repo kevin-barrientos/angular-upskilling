@@ -1,0 +1,11 @@
+<mat-list-item>
+  <span matListItemTitle>{{ note.title }}</span>
+  <span matListItemLine>{{ note.content.substring(0, 20) }}...</span>
+  <div matListItemMeta class="h-full" *ngIf="note.pinned">
+    <div class="h-full inline-block">
+      <div class="h-full flex items-center">
+        <mat-icon class="cursor-pointer mat-accent">push_pin</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-list-item>
