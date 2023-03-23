@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'angular-upskilling';
+  todo?: { title: string; description: string };
+
+  itemSelected(todo: { title: string; description: string }) {
+    this.todo = todo;
+  }
 }
