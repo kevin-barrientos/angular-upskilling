@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'tpg-todo',
-  template: ` <p>todo works!</p> `,
-  styles: [],
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {}
