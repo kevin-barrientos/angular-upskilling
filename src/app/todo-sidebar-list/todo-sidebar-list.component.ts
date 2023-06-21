@@ -7,12 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class TodoSidebarListComponent {
   @Output()
-  itemClick = new EventEmitter<{ title: string; description: string }>();
+  itemClick = new EventEmitter<{ title: string; description: string; important?: boolean }>();
 
   readonly tasks = [
     {
       title: 'Finish report for client meeting',
       description: 'Compile and finalize the project report for the upcoming client meeting.',
+      important: true,
     },
     {
       title: 'Update website content',
@@ -57,7 +58,7 @@ export class TodoSidebarListComponent {
     },
   ];
 
-  itemClicked(title: string, description: string) {
-    this.itemClick.next({ title, description });
+  itemClicked(title: string, description: string, important?: boolean) {
+    this.itemClick.next({ title, description, important });
   }
 }

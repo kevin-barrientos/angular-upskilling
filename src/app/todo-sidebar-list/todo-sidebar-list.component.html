@@ -2,7 +2,7 @@
   <tpg-todo-list-item
     [title]="task.title"
     [description]="task.description"
-    (click)="itemClicked(task.title, task.description)"
+    (click)="itemClicked(task.title, task.description, task.important)"
     *ngFor="let task of tasks"
   ></tpg-todo-list-item>
 </mat-action-list>

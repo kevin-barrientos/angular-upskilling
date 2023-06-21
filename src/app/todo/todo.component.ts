@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoComponent {
   @Input()
-  todo?: { title: string; description: string };
+  todo?: { title: string; description: string; important?: boolean };
 }

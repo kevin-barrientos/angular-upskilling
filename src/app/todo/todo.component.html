@@ -1,6 +1,6 @@
 <div class="px-4 pt-4">
   <div class="flex">
-    <h2 tpgHighlight class="flex-initial">{{ todo?.title }}</h2>
+    <h2 [tpgHighlight]="todo?.important" class="flex-initial">{{ todo?.title }}</h2>
   </div>
 </div>
 <div class="px-4 pt-4 grow">

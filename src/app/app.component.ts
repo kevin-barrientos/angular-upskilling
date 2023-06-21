@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  todo?: { title: string; description: string };
+  todo?: { title: string; description: string; important?: boolean };
 
-  itemSelected(todo: { title: string; description: string }) {
+  itemSelected(todo: { title: string; description: string; important?: boolean }) {
     this.todo = todo;
   }
 }
