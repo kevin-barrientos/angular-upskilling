@@ -1,6 +1,6 @@
 <div class="flex flex-col h-screen">
-  <tpg-master-detail-template>
+  <div template="tpg-master-detail">
     <tpg-todo-sidebar-list sidebar (itemClick)="itemSelected($event)"></tpg-todo-sidebar-list>
     <tpg-todo content [todo]="todo"></tpg-todo>
-  </tpg-master-detail-template>
+  </div>
 </div>
