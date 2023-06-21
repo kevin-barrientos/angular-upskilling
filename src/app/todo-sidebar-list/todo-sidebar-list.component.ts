@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'tpg-todo-sidebar-list',
@@ -7,9 +8,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class TodoSidebarListComponent {
   @Output()
-  itemClick = new EventEmitter<{ title: string; description: string; important?: boolean }>();
+  itemClick = new EventEmitter<Todo>();
 
-  readonly tasks = [
+  readonly tasks: Todo[] = [
     {
       title: 'Finish report for client meeting',
       description: 'Compile and finalize the project report for the upcoming client meeting.',
@@ -58,7 +59,7 @@ export class TodoSidebarListComponent {
     },
   ];
 
-  itemClicked(title: string, description: string, important?: boolean) {
-    this.itemClick.next({ title, description, important });
+  itemClicked(todo: Todo) {
+    this.itemClick.next(todo);
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Todo } from './models/todo';
 
 @Component({
   selector: 'tpg-root',
@@ -6,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  todo?: { title: string; description: string; important?: boolean };
+  todo?: Todo;
 
-  itemSelected(todo: { title: string; description: string; important?: boolean }) {
+  itemSelected(todo: Todo) {
     this.todo = todo;
   }
 }

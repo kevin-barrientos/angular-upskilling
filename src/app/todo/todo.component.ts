@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'tpg-todo',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoComponent {
   @Input()
-  todo?: { title: string; description: string; important?: boolean };
+  todo?: Todo;
 }
