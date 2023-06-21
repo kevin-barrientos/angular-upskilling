@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { TodoSidebarListComponent } from './todo-sidebar-list/todo-sidebar-list.component';
 import { MasterDetailTemplateComponent } from './master-detail-template/master-detail-template.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MasterDetailTemplateComponent } from './master-detail-template/master-d
     TodoListItemComponent,
     TodoSidebarListComponent,
     MasterDetailTemplateComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
