@@ -14,6 +14,7 @@ import { TodoListItemComponent } from './todo-list-item/todo-list-item.component
 import { TodoSidebarListComponent } from './todo-sidebar-list/todo-sidebar-list.component';
 import { MasterDetailTemplateComponent } from './master-detail-template/master-detail-template.component';
 import { HighlightDirective } from './highlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HighlightDirective } from './highlight.directive';
     TodoSidebarListComponent,
     MasterDetailTemplateComponent,
     HighlightDirective,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,

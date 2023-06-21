@@ -1,6 +1,13 @@
 <div class="flex flex-col h-screen">
   <div template="tpg-master-detail">
     <tpg-todo-sidebar-list sidebar (itemClick)="itemSelected($event)"></tpg-todo-sidebar-list>
-    <tpg-todo content [todo]="todo"></tpg-todo>
+    <div content>
+      <div *tpgUnless="!!todo; else todoDetail">
+        <div>No task selected...</div>
+      </div>
+      <ng-template #todoDetail>
+        <tpg-todo [todo]="todo"></tpg-todo>
+      </ng-template>
+    </div>
   </div>
 </div>
