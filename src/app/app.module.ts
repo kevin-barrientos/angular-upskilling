@@ -12,9 +12,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { TodoSidebarListComponent } from './todo-sidebar-list/todo-sidebar-list.component';
+import { MasterDetailTemplateComponent } from './master-detail-template/master-detail-template.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, TodoListItemComponent, TodoSidebarListComponent],
+  declarations: [
+    AppComponent,
+    TodoComponent,
+    TodoListItemComponent,
+    TodoSidebarListComponent,
+    MasterDetailTemplateComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
