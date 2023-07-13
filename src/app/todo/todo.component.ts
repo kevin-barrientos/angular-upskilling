@@ -15,4 +15,8 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {
     this.todoStore.selected$.subscribe((s) => (this.todo = s));
   }
+
+  delete() {
+    this.todoStore.delete(this.todo);
+  }
 }

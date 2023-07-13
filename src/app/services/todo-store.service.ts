@@ -69,7 +69,22 @@ export class TodoStoreService {
     return this._todos$.asObservable();
   }
 
-  select(todo: Todo) {
+  select(todo: Todo | null) {
     this._selected$.next(todo);
+  }
+
+  delete(todo: Todo | null) {
+    if (todo) {
+      const i = this.todos.findIndex((t) => t === todo);
+      if (i > -1) {
+        this.todos.splice(i, 1);
+
+        if (this._selected$.value === todo) {
+          this.select(null);
+        }
+
+        this._todos$.next([...this.todos]);
+      }
+    }
   }
 }

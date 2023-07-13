@@ -2,11 +2,11 @@
   <div template="tpg-master-detail">
     <tpg-todo-sidebar-list sidebar></tpg-todo-sidebar-list>
     <div content>
-      <div *tpgUnless="!!selected; else todoDetail">
-        <div>No task selected...</div>
+      <div *ngIf="!!selected; else todoDetail">
+        <tpg-todo></tpg-todo>
       </div>
       <ng-template #todoDetail>
-        <tpg-todo></tpg-todo>
+        <div>No task selected...</div>
       </ng-template>
     </div>
   </div>
