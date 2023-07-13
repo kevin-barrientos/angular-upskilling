@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import { Todo } from './models/todo';
+import { Component, OnInit } from '@angular/core';
+import { TodoStoreService } from './services/todo-store.service';
 
 @Component({
   selector: 'tpg-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  todo?: Todo;
+export class AppComponent implements OnInit {
+  selected: boolean = false;
 
-  itemSelected(todo: Todo) {
-    this.todo = todo;
+  constructor(private todoStore: TodoStoreService) {}
+
+  ngOnInit(): void {
+    this.todoStore.selected$.subscribe((t) => (this.selected = !!t));
   }
 }
