@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './@features/auth/login/login.component';
 import { AuthGuard } from './@features/auth/guard/auth.guard';
+import { authGuardNg14 } from './@features/auth/guard/auth.guard-ng14';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'todos',
-    canLoad: [AuthGuard],
-    canActivate: [AuthGuard],
+    canLoad: [authGuardNg14],
+    canActivate: [authGuardNg14],
     loadChildren: () => import('./@features/todos/todos.module').then((m) => m.TodosModule),
   },
   { path: '**', redirectTo: '/todos' },
