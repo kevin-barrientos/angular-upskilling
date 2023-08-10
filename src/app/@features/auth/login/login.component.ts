@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'tpg-login',
@@ -9,7 +10,9 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    this.userService.setUser(this.email);
+  }
 }
