@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MasterDetailTemplateComponent } from '../../shared/view-templates/master-detail-template/master-detail-template.component';
 import { HighlightDirective } from '../../lib/highlight.directive';
 import { UnlessDirective } from '../../lib/unless.directive';
+import { TodosRoutingModule } from './todos-routing.module';
 
 @NgModule({
   declarations: [TodosComponent, TodoComponent, TodoListItemComponent, TodoSidebarListComponent],
@@ -25,6 +26,7 @@ import { UnlessDirective } from '../../lib/unless.directive';
     MasterDetailTemplateComponent,
     HighlightDirective,
     UnlessDirective,
+    TodosRoutingModule,
   ],
   exports: [TodosComponent],
 })

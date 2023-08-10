@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'todos',
+    loadChildren: () => import('./@features/todos/todos.module').then((m) => m.TodosModule),
+  },
 ];
 
 @NgModule({
