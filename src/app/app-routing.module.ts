@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'todos',
     loadChildren: () => import('./@features/todos/todos.module').then((m) => m.TodosModule),
   },
+  { path: '**', redirectTo: '/todos' },
 ];
 
 @NgModule({
