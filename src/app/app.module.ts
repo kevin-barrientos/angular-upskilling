@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpErrorMapperInterceptor } from './shared/error-handling/http-error-mapper.interceptor';
 import { TodosModule } from './@features/todos/todos.module';
+import { LoginModule } from './@features/auth/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { TodosModule } from './@features/todos/todos.module';
     MatButtonModule,
     HttpClientModule,
     TodosModule,
+    LoginModule,
   ],
   providers: [
     {
