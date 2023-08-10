@@ -20,7 +20,7 @@ export class TodoStoreService {
   }
 
   get getTodos$(): Observable<Todo[]> {
-    const remote$ = this.http.get<Todo[]>('https://64b06638c60b8f941af5acc4.mockapi.io/api/todos').pipe(
+    const remote$ = this.http.get<Todo[]>('/api/todos').pipe(
       first(),
       tap((todos) => (this.todos = todos))
     );

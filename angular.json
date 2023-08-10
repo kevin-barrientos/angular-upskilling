@@ -56,7 +56,8 @@
               "browserTarget": "angular-upskilling:build:production"
             },
             "development": {
-              "browserTarget": "angular-upskilling:build:development"
+              "browserTarget": "angular-upskilling:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
