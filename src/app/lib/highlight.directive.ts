@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
 
 @Directive({
+  standalone: true,
   selector: '[tpgHighlight]',
 })
 export class HighlightDirective implements OnChanges {

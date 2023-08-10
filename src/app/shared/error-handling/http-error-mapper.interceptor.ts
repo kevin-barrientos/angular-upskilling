@@ -8,10 +8,10 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Todo } from '../models/todo';
+import { Todo } from '../../@features/todos/models/todo';
 
 @Injectable()
-export class ConsoleLogInterceptor implements HttpInterceptor {
+export class HttpErrorMapperInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<Todo[]>> {

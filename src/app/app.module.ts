@@ -4,30 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TodoComponent } from './todo/todo.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { TodoSidebarListComponent } from './todo-sidebar-list/todo-sidebar-list.component';
-import { MasterDetailTemplateComponent } from './master-detail-template/master-detail-template.component';
-import { HighlightDirective } from './highlight.directive';
-import { UnlessDirective } from './unless.directive';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ConsoleLogInterceptor } from './interceptors/console-log.interceptor';
+import { HttpErrorMapperInterceptor } from './shared/error-handling/http-error-mapper.interceptor';
+import { TodosModule } from './@features/todos/todos.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodoComponent,
-    TodoListItemComponent,
-    TodoSidebarListComponent,
-    MasterDetailTemplateComponent,
-    HighlightDirective,
-    UnlessDirective,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,11 +25,12 @@ import { ConsoleLogInterceptor } from './interceptors/console-log.interceptor';
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    TodosModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ConsoleLogInterceptor,
+      useClass: HttpErrorMapperInterceptor,
       multi: true,
     },
   ],
