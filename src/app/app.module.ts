@@ -15,6 +15,8 @@ import { TodoSidebarListComponent } from './todo-sidebar-list/todo-sidebar-list.
 import { MasterDetailTemplateComponent } from './master-detail-template/master-detail-template.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ConsoleLogInterceptor } from './interceptors/console-log.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,15 @@ import { UnlessDirective } from './unless.directive';
     MatRippleModule,
     MatIconModule,
     MatButtonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ConsoleLogInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
