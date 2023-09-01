@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Todo } from '../models/todo';
+import { Component } from '@angular/core';
 import { TodoStoreService } from '../services/todo-store.service';
 
 @Component({
@@ -8,11 +7,7 @@ import { TodoStoreService } from '../services/todo-store.service';
   styleUrls: ['./todo-sidebar-list.component.css'],
 })
 export class TodoSidebarListComponent {
-  todos$ = this.todoStore.getTodos$;
+  todos$ = this.todoStore.todos$;
 
   constructor(private todoStore: TodoStoreService) {}
-
-  itemClicked(todo: Todo) {
-    this.todoStore.select(todo);
-  }
 }

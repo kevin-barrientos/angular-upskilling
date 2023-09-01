@@ -1,7 +1,3 @@
 <mat-action-list>
-  <tpg-todo-list-item
-    [todo]="task"
-    (click)="itemClicked(task)"
-    *ngFor="let task of todos$ | async"
-  ></tpg-todo-list-item>
+  <tpg-todo-list-item [todo]="task" *ngFor="let task of todos$ | async"></tpg-todo-list-item>
 </mat-action-list>
