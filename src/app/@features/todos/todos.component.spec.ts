@@ -1,14 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TodosComponent } from './todos.component';
 import { TodoStoreService } from './services/todo-store.service';
 import { Subject } from 'rxjs';
 import { Todo } from './models/todo';
-import { MockProvider } from 'ng-mocks';
+import { Shallow } from 'shallow-render';
+import { TodosModule } from './todos.module';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
-  let fixture: ComponentFixture<TodosComponent>;
 
   let todoStoreMock: Partial<TodoStoreService>;
   let selected$ = new Subject<Todo>();
@@ -18,14 +16,11 @@ describe('TodosComponent', () => {
       selected$: selected$.asObservable(),
     };
 
-    await TestBed.configureTestingModule({
-      declarations: [TodosComponent],
-      providers: [MockProvider(TodoStoreService, todoStoreMock)],
-    }).overrideComponent(TodosComponent, { set: { template: '' } });
+    const { element } = await new Shallow<TodosComponent>(TodosComponent, TodosModule)
+      .mock(TodoStoreService, todoStoreMock)
+      .render();
 
-    fixture = TestBed.createComponent(TodosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = element.componentInstance;
   });
 
   it('should create', () => {

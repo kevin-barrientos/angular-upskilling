@@ -6,23 +6,22 @@ import { MatListItemLine, MatListItemTitle, MatListModule } from '@angular/mater
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { Todo } from '../models/todo';
+import { Shallow } from 'shallow-render';
+import { TodosModule } from '../todos.module';
+import { Rendering } from 'shallow-render/dist/lib/models/rendering';
 
 describe('TodoListItemComponent', () => {
   let component: TodoListItemComponent;
   let fixture: ComponentFixture<TodoListItemComponent>;
+  let rendering: Rendering<TodoListItemComponent, never>;
 
   let todoMock: Todo = { id: 1, title: 'Mock todo', description: 'Mock description', important: false };
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [TodoListItemComponent],
-      imports: [CommonModule, MatListModule, RouterTestingModule],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(TodoListItemComponent);
-    component = fixture.componentInstance;
-
-    fixture.detectChanges();
+    const shallow = new Shallow(TodoListItemComponent, TodosModule);
+    rendering = await shallow.render();
+    fixture = rendering.fixture;
+    component = rendering.element.componentInstance;
   });
 
   it('should create', () => {
@@ -36,8 +35,8 @@ describe('TodoListItemComponent', () => {
     });
 
     it('should render its title and description', () => {
-      const titleSpan: HTMLElement = fixture.debugElement.query(By.directive(MatListItemTitle)).nativeElement;
-      const descriptionSpan: HTMLElement = fixture.debugElement.query(By.directive(MatListItemLine)).nativeElement;
+      const titleSpan: HTMLElement = rendering.find(MatListItemTitle).nativeElement;
+      const descriptionSpan: HTMLElement = rendering.find(MatListItemLine).nativeElement;
 
       expect(titleSpan).toBeDefined();
       expect(titleSpan.innerText).toEqual(todoMock.title);
