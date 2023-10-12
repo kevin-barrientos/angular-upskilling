@@ -8,7 +8,7 @@ describe('MasterDetailTemplateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MasterDetailTemplateComponent],
+      imports: [MasterDetailTemplateComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MasterDetailTemplateComponent);
