@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MockProvider, ngMocks } from 'ng-mocks';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -23,10 +24,7 @@ describe('LoginComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      providers: [
-        { provide: UserService, useValue: userServiceMock },
-        { provide: Router, useValue: routerMock },
-      ],
+      providers: [MockProvider(UserService, userServiceMock), MockProvider(Router, routerMock)],
       imports: [CommonModule, FormsModule, NoopAnimationsModule, MatInputModule, MatButtonModule, MatFormFieldModule],
     });
 

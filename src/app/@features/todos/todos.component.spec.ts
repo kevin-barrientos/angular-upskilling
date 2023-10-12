@@ -4,6 +4,7 @@ import { TodosComponent } from './todos.component';
 import { TodoStoreService } from './services/todo-store.service';
 import { Subject } from 'rxjs';
 import { Todo } from './models/todo';
+import { MockProvider } from 'ng-mocks';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
@@ -19,7 +20,7 @@ describe('TodosComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [TodosComponent],
-      providers: [{ provide: TodoStoreService, useValue: todoStoreMock }],
+      providers: [MockProvider(TodoStoreService, todoStoreMock)],
     }).overrideComponent(TodosComponent, { set: { template: '' } });
 
     fixture = TestBed.createComponent(TodosComponent);
